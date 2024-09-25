@@ -1,0 +1,316 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local addds = Instance.new("TextButton")
+local loopaddds = Instance.new("TextButton")
+local stoploopadd = Instance.new("TextButton")
+local removedisaster = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local loopremove = Instance.new("TextButton")
+local toggle = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.409029663, 0, 0.10631001, 0)
+Frame.Size = UDim2.new(0, 350, 0, 138)
+
+addds.Name = "addds"
+addds.Parent = Frame
+addds.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+addds.BorderColor3 = Color3.fromRGB(0, 0, 0)
+addds.BorderSizePixel = 0
+addds.Size = UDim2.new(0, 171, 0, 38)
+addds.Font = Enum.Font.SourceSans
+addds.Text = "add disaster"
+addds.TextColor3 = Color3.fromRGB(0, 0, 0)
+addds.TextSize = 20.000
+
+loopaddds.Name = "loopaddds"
+loopaddds.Parent = Frame
+loopaddds.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+loopaddds.BorderColor3 = Color3.fromRGB(0, 0, 0)
+loopaddds.BorderSizePixel = 0
+loopaddds.Position = UDim2.new(0.488571435, 0, 0, 0)
+loopaddds.Size = UDim2.new(0, 179, 0, 38)
+loopaddds.Font = Enum.Font.SourceSansBold
+loopaddds.Text = "loop add disaster"
+loopaddds.TextColor3 = Color3.fromRGB(0, 0, 0)
+loopaddds.TextSize = 24.000
+
+stoploopadd.Name = "stop loop add"
+stoploopadd.Parent = Frame
+stoploopadd.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+stoploopadd.BorderColor3 = Color3.fromRGB(0, 0, 0)
+stoploopadd.BorderSizePixel = 0
+stoploopadd.Position = UDim2.new(0.488571435, 0, 0.379999995, 0)
+stoploopadd.Size = UDim2.new(0, 179, 0, 31)
+stoploopadd.Font = Enum.Font.SourceSansBold
+stoploopadd.Text = "stop loops"
+stoploopadd.TextColor3 = Color3.fromRGB(0, 0, 0)
+stoploopadd.TextSize = 24.000
+
+removedisaster.Name = "remove disaster"
+removedisaster.Parent = Frame
+removedisaster.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+removedisaster.BorderColor3 = Color3.fromRGB(0, 0, 0)
+removedisaster.BorderSizePixel = 0
+removedisaster.Position = UDim2.new(0, 0, 0.379999995, 0)
+removedisaster.Size = UDim2.new(0, 171, 0, 31)
+removedisaster.Font = Enum.Font.SourceSansBold
+removedisaster.Text = "remove dsaster"
+removedisaster.TextColor3 = Color3.fromRGB(0, 0, 0)
+removedisaster.TextSize = 23.000
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, -0.362318844, 0)
+TextLabel.Size = UDim2.new(0, 350, 0, 50)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "admin"
+TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.TextSize = 50.000
+
+loopremove.Name = "loop remove"
+loopremove.Parent = Frame
+loopremove.BackgroundColor3 = Color3.fromRGB(170, 255, 255)
+loopremove.BorderColor3 = Color3.fromRGB(0, 0, 0)
+loopremove.BorderSizePixel = 0
+loopremove.Position = UDim2.new(0, 0, 0.768115938, 0)
+loopremove.Size = UDim2.new(0, 171, 0, 32)
+loopremove.Font = Enum.Font.SourceSansBold
+loopremove.Text = "loop remove disaster"
+loopremove.TextColor3 = Color3.fromRGB(0, 0, 0)
+loopremove.TextSize = 22.000
+
+toggle.Name = "toggle"
+toggle.Parent = ScreenGui
+toggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+toggle.BorderSizePixel = 0
+toggle.Position = UDim2.new(0.351752013, 0, 0.0462962948, 0)
+toggle.Size = UDim2.new(0, 56, 0, 50)
+toggle.Font = Enum.Font.SourceSansBold
+toggle.Text = "X"
+toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+toggle.TextSize = 50.000
+
+-- Scripts:
+
+local function MJZOBS_fake_script() -- addds.Script 
+	local script = Instance.new('Script', addds)
+
+	function Click(mouse)
+	
+		game:GetService("ReplicatedStorage").AddDisaster:FireServer()
+	
+	
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(MJZOBS_fake_script)()
+local function BQMNKOA_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	local dragger = {}; 
+	local resizer = {};
+	
+	do
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse();
+		local inputService = game:GetService('UserInputService');
+		local heartbeat = game:GetService("RunService").Heartbeat;
+		-- // credits to Ririchi / Inori for this cute drag function :)
+		function dragger.new(frame)
+			local s, event = pcall(function()
+				return frame.MouseEnter
+			end)
+	
+			if s then
+				frame.Active = true;
+	
+				event:connect(function()
+					local input = frame.InputBegan:connect(function(key)
+						if key.UserInputType == Enum.UserInputType.MouseButton1 then
+							local objectPosition = Vector2.new(mouse.X - frame.AbsolutePosition.X, mouse.Y - frame.AbsolutePosition.Y);
+							while heartbeat:wait() and inputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+								frame:TweenPosition(UDim2.new(0, mouse.X - objectPosition.X + (frame.Size.X.Offset * frame.AnchorPoint.X), 0, mouse.Y - objectPosition.Y + (frame.Size.Y.Offset * frame.AnchorPoint.Y)), 'Out', 'Quad', 0.1, true);
+							end
+						end
+					end)
+	
+					local leave;
+					leave = frame.MouseLeave:connect(function()
+						input:disconnect();
+						leave:disconnect();
+					end)
+				end)
+			end
+		end
+	
+		function resizer.new(p, s)
+			p:GetPropertyChangedSignal('AbsoluteSize'):connect(function()
+				s.Size = UDim2.new(s.Size.X.Scale, s.Size.X.Offset, s.Size.Y.Scale, p.AbsoluteSize.Y);
+			end)
+		end
+	end
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(BQMNKOA_fake_script)()
+local function GTTGX_fake_script() -- loopaddds.Script 
+	local script = Instance.new('Script', loopaddds)
+
+	function Click(mouse)
+		_G.toggle = true
+		
+		while _G.toggle do
+		wait()
+			game:GetService("ReplicatedStorage").AddDisaster:FireServer()
+	
+		end
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(GTTGX_fake_script)()
+local function XQMSF_fake_script() -- stoploopadd.Script 
+	local script = Instance.new('Script', stoploopadd)
+
+	function Click(mouse)
+	
+		_G.toggle = false
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(XQMSF_fake_script)()
+local function NKEIVYN_fake_script() -- removedisaster.Script 
+	local script = Instance.new('Script', removedisaster)
+
+	function Click(mouse)
+	
+		game:GetService("ReplicatedStorage").RemoveDisaster:FireServer()
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(NKEIVYN_fake_script)()
+local function DAGUK_fake_script() -- loopremove.Script 
+	local script = Instance.new('Script', loopremove)
+
+	function Click(mouse)
+	
+		_G.toggle = true
+	
+		while _G.toggle do
+			wait()
+			game:GetService("ReplicatedStorage").RemoveDisaster:FireServer()
+		end
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(DAGUK_fake_script)()
+local function YCJDB_fake_script() -- toggle.LocalScript 
+	local script = Instance.new('LocalScript', toggle)
+
+	local back = script.Parent.Parent.Frame
+	local con = script.Parent.Parent.Frame
+	
+	local window = {
+		count = 0;
+		toggles = {},
+		closed = false;
+	}
+	script.Parent.MouseButton1Click:connect(function()
+		window.closed = not window.closed
+		script.Parent.Text = (window.closed and "+" or "X")
+		if script.Parent.Text == "+" then
+			back:TweenSize(UDim2.new(0, 190,0, 0), "Out", "Sine", 0.5)
+			con:TweenSize(UDim2.new(0, 190,0, 0), "Out", "Sine", 0.5)
+			wait(0.1) do
+				con.Visible = false
+			end
+		else
+			back:TweenSize(UDim2.new(0, 350,0, 138), "Out", "Sine", 0.5)
+			con:TweenSize(UDim2.new(0, 350,0, 138), "Out", "Sine", 0.5)
+			wait(0.2) do
+				con.Visible = true
+			end
+		end
+	
+	end)
+end
+coroutine.wrap(YCJDB_fake_script)()
+local function OUUKDQK_fake_script() -- toggle.LocalScript 
+	local script = Instance.new('LocalScript', toggle)
+
+	local dragger = {}; 
+	local resizer = {};
+	
+	do
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse();
+		local inputService = game:GetService('UserInputService');
+		local heartbeat = game:GetService("RunService").Heartbeat;
+		-- // credits to Ririchi / Inori for this cute drag function :)
+		function dragger.new(frame)
+			local s, event = pcall(function()
+				return frame.MouseEnter
+			end)
+	
+			if s then
+				frame.Active = true;
+	
+				event:connect(function()
+					local input = frame.InputBegan:connect(function(key)
+						if key.UserInputType == Enum.UserInputType.MouseButton1 then
+							local objectPosition = Vector2.new(mouse.X - frame.AbsolutePosition.X, mouse.Y - frame.AbsolutePosition.Y);
+							while heartbeat:wait() and inputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+								frame:TweenPosition(UDim2.new(0, mouse.X - objectPosition.X + (frame.Size.X.Offset * frame.AnchorPoint.X), 0, mouse.Y - objectPosition.Y + (frame.Size.Y.Offset * frame.AnchorPoint.Y)), 'Out', 'Quad', 0.1, true);
+							end
+						end
+					end)
+	
+					local leave;
+					leave = frame.MouseLeave:connect(function()
+						input:disconnect();
+						leave:disconnect();
+					end)
+				end)
+			end
+		end
+	
+		function resizer.new(p, s)
+			p:GetPropertyChangedSignal('AbsoluteSize'):connect(function()
+				s.Size = UDim2.new(s.Size.X.Scale, s.Size.X.Offset, s.Size.Y.Scale, p.AbsoluteSize.Y);
+			end)
+		end
+	end
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(OUUKDQK_fake_script)()
