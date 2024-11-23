@@ -3,14 +3,14 @@
 
 -- Instances:
 
-local ScreenGui = Instance.new("ScreenGui")
+local jlmain = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local ScrollingFrame = Instance.new("ScrollingFrame")
-local adonisbypass = Instance.new("TextButton")
+local speed7 = Instance.new("TextButton")
 local antifirstperson = Instance.new("TextButton")
 local antigameplaypaused = Instance.new("TextButton")
 local antivoid = Instance.new("TextButton")
-local explorer = Instance.new("TextButton")
+local ws25 = Instance.new("TextButton")
 local flygui = Instance.new("TextButton")
 local guilauncher = Instance.new("TextButton")
 local infjump = Instance.new("TextButton")
@@ -42,8 +42,8 @@ local lpjp500 = Instance.new("TextButton")
 local lpjp750 = Instance.new("TextButton")
 local lpjpv75 = Instance.new("TextButton")
 local maxzoom100kmax = Instance.new("TextButton")
-local positionfinder = Instance.new("TextButton")
-local remotespy = Instance.new("TextButton")
+local speed = Instance.new("TextButton")
+local stoploops = Instance.new("TextButton")
 local speed175 = Instance.new("TextButton")
 local speed1 = Instance.new("TextButton")
 local speed2 = Instance.new("TextButton")
@@ -51,20 +51,17 @@ local speed4 = Instance.new("TextButton")
 local speed5 = Instance.new("TextButton")
 local speed5_2 = Instance.new("TextButton")
 local speed6 = Instance.new("TextButton")
-local speed7 = Instance.new("TextButton")
-local speed = Instance.new("TextButton")
-local stoploops = Instance.new("TextButton")
-local ws25 = Instance.new("TextButton")
 local TextLabel = Instance.new("TextLabel")
 local toggle = Instance.new("TextButton")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.ResetOnSpawn = false
+jlmain.Name = "jlmain"
+jlmain.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+jlmain.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+jlmain.ResetOnSpawn = false
 
-Frame.Parent = ScreenGui
+Frame.Parent = jlmain
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
@@ -78,19 +75,20 @@ ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScrollingFrame.BorderSizePixel = 0
 ScrollingFrame.Position = UDim2.new(-0.0133672487, 0, 0.965907633, 0)
 ScrollingFrame.Size = UDim2.new(0, 337, 0, 327)
+ScrollingFrame.CanvasPosition = Vector2.new(0, 1650)
 ScrollingFrame.CanvasSize = UDim2.new(0, 0, 200, 0)
 
-adonisbypass.Name = "adonisbypass"
-adonisbypass.Parent = ScrollingFrame
-adonisbypass.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-adonisbypass.BorderColor3 = Color3.fromRGB(0, 0, 0)
-adonisbypass.BorderSizePixel = 0
-adonisbypass.Position = UDim2.new(0, 0, 0.932384074, 0)
-adonisbypass.Size = UDim2.new(0, 200, 0, 50)
-adonisbypass.Font = Enum.Font.SourceSansBold
-adonisbypass.Text = "adonis bypass "
-adonisbypass.TextColor3 = Color3.fromRGB(255, 0, 0)
-adonisbypass.TextSize = 16.000
+speed7.Name = "speed7"
+speed7.Parent = ScrollingFrame
+speed7.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+speed7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+speed7.BorderSizePixel = 0
+speed7.Position = UDim2.new(-0.0132290199, 0, 0.135122389, 0)
+speed7.Size = UDim2.new(0, 98, 0, 50)
+speed7.Font = Enum.Font.SourceSansBold
+speed7.Text = "speed 70"
+speed7.TextColor3 = Color3.fromRGB(255, 0, 0)
+speed7.TextSize = 14.000
 
 antifirstperson.Name = "antifirstperson"
 antifirstperson.Parent = ScrollingFrame
@@ -128,17 +126,17 @@ antivoid.Text = "antivoid"
 antivoid.TextColor3 = Color3.fromRGB(255, 0, 0)
 antivoid.TextSize = 14.000
 
-explorer.Name = "explorer"
-explorer.Parent = ScrollingFrame
-explorer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-explorer.BorderColor3 = Color3.fromRGB(0, 0, 0)
-explorer.BorderSizePixel = 0
-explorer.Position = UDim2.new(0, 0, 0.305000007, 0)
-explorer.Size = UDim2.new(0, 300, 0, 50)
-explorer.Font = Enum.Font.SourceSansBold
-explorer.Text = "explorer mobile (has key)"
-explorer.TextColor3 = Color3.fromRGB(255, 0, 0)
-explorer.TextSize = 14.000
+ws25.Name = "ws 25"
+ws25.Parent = ScrollingFrame
+ws25.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ws25.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ws25.BorderSizePixel = 0
+ws25.Position = UDim2.new(-0, 0, 0.0659999996, 0)
+ws25.Size = UDim2.new(0, 98, 0, 50)
+ws25.Font = Enum.Font.SourceSansBold
+ws25.Text = "speed 25"
+ws25.TextColor3 = Color3.fromRGB(255, 0, 0)
+ws25.TextSize = 14.000
 
 flygui.Name = "flygui"
 flygui.Parent = ScrollingFrame
@@ -511,29 +509,29 @@ maxzoom100kmax.Text = "maxzoom 100k (max)"
 maxzoom100kmax.TextColor3 = Color3.fromRGB(255, 0, 0)
 maxzoom100kmax.TextSize = 14.000
 
-positionfinder.Name = "position finder"
-positionfinder.Parent = ScrollingFrame
-positionfinder.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-positionfinder.BorderColor3 = Color3.fromRGB(0, 0, 0)
-positionfinder.BorderSizePixel = 0
-positionfinder.Position = UDim2.new(0, 0, 0.324999988, 0)
-positionfinder.Size = UDim2.new(0, 300, 0, 50)
-positionfinder.Font = Enum.Font.SourceSansBold
-positionfinder.Text = "position finder"
-positionfinder.TextColor3 = Color3.fromRGB(255, 0, 0)
-positionfinder.TextSize = 14.000
+speed.Name = "speed?"
+speed.Parent = ScrollingFrame
+speed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+speed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+speed.BorderSizePixel = 0
+speed.Position = UDim2.new(-0, 0, 0.112000003, 0)
+speed.Size = UDim2.new(0, 98, 0, 50)
+speed.Font = Enum.Font.SourceSansBold
+speed.Text = "speed 50"
+speed.TextColor3 = Color3.fromRGB(255, 0, 0)
+speed.TextSize = 14.000
 
-remotespy.Name = "remote spy"
-remotespy.Parent = ScrollingFrame
-remotespy.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-remotespy.BorderColor3 = Color3.fromRGB(0, 0, 0)
-remotespy.BorderSizePixel = 0
-remotespy.Position = UDim2.new(0, 0, 0.344999999, 0)
-remotespy.Size = UDim2.new(0, 300, 0, 50)
-remotespy.Font = Enum.Font.SourceSansBold
-remotespy.Text = "remote spy"
-remotespy.TextColor3 = Color3.fromRGB(255, 0, 0)
-remotespy.TextSize = 14.000
+stoploops.Name = "stop loops"
+stoploops.Parent = ScrollingFrame
+stoploops.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+stoploops.BorderColor3 = Color3.fromRGB(0, 0, 0)
+stoploops.BorderSizePixel = 0
+stoploops.Position = UDim2.new(0, 0, 0.0270000007, 0)
+stoploops.Size = UDim2.new(0, 300, 0, 50)
+stoploops.Font = Enum.Font.SourceSansBold
+stoploops.Text = "stop loops"
+stoploops.TextColor3 = Color3.fromRGB(255, 0, 0)
+stoploops.TextSize = 14.000
 
 speed175.Name = "speed 17.5"
 speed175.Parent = ScrollingFrame
@@ -619,54 +617,6 @@ speed6.Text = "speed 250"
 speed6.TextColor3 = Color3.fromRGB(255, 0, 0)
 speed6.TextSize = 14.000
 
-speed7.Name = "speed7"
-speed7.Parent = ScrollingFrame
-speed7.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-speed7.BorderColor3 = Color3.fromRGB(0, 0, 0)
-speed7.BorderSizePixel = 0
-speed7.Position = UDim2.new(-0.0132290199, 0, 0.135122389, 0)
-speed7.Size = UDim2.new(0, 98, 0, 50)
-speed7.Font = Enum.Font.SourceSansBold
-speed7.Text = "speed 70"
-speed7.TextColor3 = Color3.fromRGB(255, 0, 0)
-speed7.TextSize = 14.000
-
-speed.Name = "speed?"
-speed.Parent = ScrollingFrame
-speed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-speed.BorderColor3 = Color3.fromRGB(0, 0, 0)
-speed.BorderSizePixel = 0
-speed.Position = UDim2.new(-0, 0, 0.112000003, 0)
-speed.Size = UDim2.new(0, 98, 0, 50)
-speed.Font = Enum.Font.SourceSansBold
-speed.Text = "speed 50"
-speed.TextColor3 = Color3.fromRGB(255, 0, 0)
-speed.TextSize = 14.000
-
-stoploops.Name = "stop loops"
-stoploops.Parent = ScrollingFrame
-stoploops.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-stoploops.BorderColor3 = Color3.fromRGB(0, 0, 0)
-stoploops.BorderSizePixel = 0
-stoploops.Position = UDim2.new(0, 0, 0.0270000007, 0)
-stoploops.Size = UDim2.new(0, 300, 0, 50)
-stoploops.Font = Enum.Font.SourceSansBold
-stoploops.Text = "stop loops"
-stoploops.TextColor3 = Color3.fromRGB(255, 0, 0)
-stoploops.TextSize = 14.000
-
-ws25.Name = "ws 25"
-ws25.Parent = ScrollingFrame
-ws25.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ws25.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ws25.BorderSizePixel = 0
-ws25.Position = UDim2.new(-0, 0, 0.0659999996, 0)
-ws25.Size = UDim2.new(0, 98, 0, 50)
-ws25.Font = Enum.Font.SourceSansBold
-ws25.Text = "speed 25"
-ws25.TextColor3 = Color3.fromRGB(255, 0, 0)
-ws25.TextSize = 14.000
-
 TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -674,12 +624,12 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(-0.0133672487, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 337, 0, 57)
 TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "JL admin panel"
+TextLabel.Text = "jlchris main gui"
 TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
-TextLabel.TextSize = 56.000
+TextLabel.TextSize = 50.000
 
 toggle.Name = "toggle"
-toggle.Parent = ScreenGui
+toggle.Parent = jlmain
 toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 toggle.BorderSizePixel = 0
@@ -692,20 +642,20 @@ toggle.TextSize = 64.000
 
 -- Scripts:
 
-local function IAOF_fake_script() -- adonisbypass.Script 
-	local script = Instance.new('Script', adonisbypass)
+local function VYYK_fake_script() -- speed7.Script 
+	local script = Instance.new('Script', speed7)
 
 	function Click(mouse)
 	
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 70
 	
 	end
 	
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(IAOF_fake_script)()
-local function PLEDPA_fake_script() -- antifirstperson.Script 
+coroutine.wrap(VYYK_fake_script)()
+local function UZWFM_fake_script() -- antifirstperson.Script 
 	local script = Instance.new('Script', antifirstperson)
 
 	function Click(mouse)
@@ -717,8 +667,8 @@ local function PLEDPA_fake_script() -- antifirstperson.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(PLEDPA_fake_script)()
-local function PNXRWD_fake_script() -- antigameplaypaused.Script 
+coroutine.wrap(UZWFM_fake_script)()
+local function DDEYBXI_fake_script() -- antigameplaypaused.Script 
 	local script = Instance.new('Script', antigameplaypaused)
 
 	function Click(mouse)
@@ -729,8 +679,8 @@ local function PNXRWD_fake_script() -- antigameplaypaused.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(PNXRWD_fake_script)()
-local function NPHYF_fake_script() -- antivoid.Script 
+coroutine.wrap(DDEYBXI_fake_script)()
+local function JMVTC_fake_script() -- antivoid.Script 
 	local script = Instance.new('Script', antivoid)
 
 	function Click(mouse)
@@ -742,21 +692,21 @@ local function NPHYF_fake_script() -- antivoid.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(NPHYF_fake_script)()
-local function WWPS_fake_script() -- explorer.Script 
-	local script = Instance.new('Script', explorer)
+coroutine.wrap(JMVTC_fake_script)()
+local function TOHF_fake_script() -- ws25.Script 
+	local script = Instance.new('Script', ws25)
 
 	function Click(mouse)
 	
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/DEX-Explorer/main/Mobile.lua"))()
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25
 	
 	end
 	
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(WWPS_fake_script)()
-local function GLPYBY_fake_script() -- flygui.Script 
+coroutine.wrap(TOHF_fake_script)()
+local function UOMV_fake_script() -- flygui.Script 
 	local script = Instance.new('Script', flygui)
 
 	function Click(mouse)
@@ -770,8 +720,8 @@ local function GLPYBY_fake_script() -- flygui.Script
 	
 	
 end
-coroutine.wrap(GLPYBY_fake_script)()
-local function MPUAU_fake_script() -- guilauncher.Script 
+coroutine.wrap(UOMV_fake_script)()
+local function FKFSFJ_fake_script() -- guilauncher.Script 
 	local script = Instance.new('Script', guilauncher)
 
 	function Click(mouse)
@@ -783,8 +733,8 @@ local function MPUAU_fake_script() -- guilauncher.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(MPUAU_fake_script)()
-local function KIVCS_fake_script() -- infjump.Script 
+coroutine.wrap(FKFSFJ_fake_script)()
+local function LJNAF_fake_script() -- infjump.Script 
 	local script = Instance.new('Script', infjump)
 
 	function Click(mouse)
@@ -804,8 +754,8 @@ local function KIVCS_fake_script() -- infjump.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(KIVCS_fake_script)()
-local function BOUS_fake_script() -- jp150.Script 
+coroutine.wrap(LJNAF_fake_script)()
+local function XMZRAUT_fake_script() -- jp150.Script 
 	local script = Instance.new('Script', jp150)
 
 	function Click(mouse)
@@ -817,8 +767,8 @@ local function BOUS_fake_script() -- jp150.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(BOUS_fake_script)()
-local function YVZQ_fake_script() -- jp275.Script 
+coroutine.wrap(XMZRAUT_fake_script)()
+local function NISE_fake_script() -- jp275.Script 
 	local script = Instance.new('Script', jp275)
 
 	function Click(mouse)
@@ -830,8 +780,8 @@ local function YVZQ_fake_script() -- jp275.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(YVZQ_fake_script)()
-local function CIXYM_fake_script() -- jp3100.Script 
+coroutine.wrap(NISE_fake_script)()
+local function OFAJM_fake_script() -- jp3100.Script 
 	local script = Instance.new('Script', jp3100)
 
 	function Click(mouse)
@@ -843,8 +793,8 @@ local function CIXYM_fake_script() -- jp3100.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(CIXYM_fake_script)()
-local function YFEGUD_fake_script() -- jp4150.Script 
+coroutine.wrap(OFAJM_fake_script)()
+local function DTOR_fake_script() -- jp4150.Script 
 	local script = Instance.new('Script', jp4150)
 
 	function Click(mouse)
@@ -856,8 +806,8 @@ local function YFEGUD_fake_script() -- jp4150.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(YFEGUD_fake_script)()
-local function XUFCH_fake_script() -- jp5250.Script 
+coroutine.wrap(DTOR_fake_script)()
+local function ETYPY_fake_script() -- jp5250.Script 
 	local script = Instance.new('Script', jp5250)
 
 	function Click(mouse)
@@ -869,8 +819,8 @@ local function XUFCH_fake_script() -- jp5250.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(XUFCH_fake_script)()
-local function PQAJTHW_fake_script() -- jp6500.Script 
+coroutine.wrap(ETYPY_fake_script)()
+local function KFOEX_fake_script() -- jp6500.Script 
 	local script = Instance.new('Script', jp6500)
 
 	function Click(mouse)
@@ -882,8 +832,8 @@ local function PQAJTHW_fake_script() -- jp6500.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(PQAJTHW_fake_script)()
-local function TTZG_fake_script() -- jp7750.Script 
+coroutine.wrap(KFOEX_fake_script)()
+local function QBJERGS_fake_script() -- jp7750.Script 
 	local script = Instance.new('Script', jp7750)
 
 	function Click(mouse)
@@ -895,8 +845,8 @@ local function TTZG_fake_script() -- jp7750.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(TTZG_fake_script)()
-local function EHGO_fake_script() -- loopantifp.Script 
+coroutine.wrap(QBJERGS_fake_script)()
+local function YOBBZ_fake_script() -- loopantifp.Script 
 	local script = Instance.new('Script', loopantifp)
 
 	function Click(mouse)
@@ -912,8 +862,8 @@ local function EHGO_fake_script() -- loopantifp.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(EHGO_fake_script)()
-local function QYOT_fake_script() -- loopantigameplaypaused.Script 
+coroutine.wrap(YOBBZ_fake_script)()
+local function UNBRE_fake_script() -- loopantigameplaypaused.Script 
 	local script = Instance.new('Script', loopantigameplaypaused)
 
 	function Click(mouse)
@@ -929,8 +879,8 @@ local function QYOT_fake_script() -- loopantigameplaypaused.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(QYOT_fake_script)()
-local function JSSZ_fake_script() -- loopantivoid.Script 
+coroutine.wrap(UNBRE_fake_script)()
+local function IGRGUDE_fake_script() -- loopantivoid.Script 
 	local script = Instance.new('Script', loopantivoid)
 
 	function Click(mouse)
@@ -946,8 +896,8 @@ local function JSSZ_fake_script() -- loopantivoid.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(JSSZ_fake_script)()
-local function SNTSY_fake_script() -- loopinfjump.Script 
+coroutine.wrap(IGRGUDE_fake_script)()
+local function HVEZ_fake_script() -- loopinfjump.Script 
 	local script = Instance.new('Script', loopinfjump)
 
 	function Click(mouse)
@@ -970,8 +920,8 @@ local function SNTSY_fake_script() -- loopinfjump.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(SNTSY_fake_script)()
-local function YGVUI_fake_script() -- loopmaxzoom100kmax.Script 
+coroutine.wrap(HVEZ_fake_script)()
+local function VKXV_fake_script() -- loopmaxzoom100kmax.Script 
 	local script = Instance.new('Script', loopmaxzoom100kmax)
 
 	function Click(mouse)
@@ -987,8 +937,8 @@ local function YGVUI_fake_script() -- loopmaxzoom100kmax.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(YGVUI_fake_script)()
-local function IOSPKZN_fake_script() -- loopspeed.Script 
+coroutine.wrap(VKXV_fake_script)()
+local function AMRTQ_fake_script() -- loopspeed.Script 
 	local script = Instance.new('Script', loopspeed)
 
 	function Click(mouse)
@@ -1004,8 +954,8 @@ local function IOSPKZN_fake_script() -- loopspeed.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(IOSPKZN_fake_script)()
-local function QAZMI_fake_script() -- loopspeed175.Script 
+coroutine.wrap(AMRTQ_fake_script)()
+local function PDIVJLA_fake_script() -- loopspeed175.Script 
 	local script = Instance.new('Script', loopspeed175)
 
 	function Click(mouse)
@@ -1021,8 +971,8 @@ local function QAZMI_fake_script() -- loopspeed175.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(QAZMI_fake_script)()
-local function SLZV_fake_script() -- loopspeed2.Script 
+coroutine.wrap(PDIVJLA_fake_script)()
+local function MWOEWVN_fake_script() -- loopspeed2.Script 
 	local script = Instance.new('Script', loopspeed2)
 
 	function Click(mouse)
@@ -1038,8 +988,8 @@ local function SLZV_fake_script() -- loopspeed2.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(SLZV_fake_script)()
-local function RNCHRXH_fake_script() -- loopspeed3.Script 
+coroutine.wrap(MWOEWVN_fake_script)()
+local function IRBV_fake_script() -- loopspeed3.Script 
 	local script = Instance.new('Script', loopspeed3)
 
 	function Click(mouse)
@@ -1056,8 +1006,8 @@ local function RNCHRXH_fake_script() -- loopspeed3.Script
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(RNCHRXH_fake_script)()
-local function TRNDVK_fake_script() -- loopspeed4.Script 
+coroutine.wrap(IRBV_fake_script)()
+local function KWHOY_fake_script() -- loopspeed4.Script 
 	local script = Instance.new('Script', loopspeed4)
 
 	function Click(mouse)
@@ -1073,8 +1023,8 @@ local function TRNDVK_fake_script() -- loopspeed4.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(TRNDVK_fake_script)()
-local function PWFAGVJ_fake_script() -- loopspeed5.Script 
+coroutine.wrap(KWHOY_fake_script)()
+local function UUGF_fake_script() -- loopspeed5.Script 
 	local script = Instance.new('Script', loopspeed5)
 
 	function Click(mouse)
@@ -1090,8 +1040,8 @@ local function PWFAGVJ_fake_script() -- loopspeed5.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(PWFAGVJ_fake_script)()
-local function EKQT_fake_script() -- loopspeed6.Script 
+coroutine.wrap(UUGF_fake_script)()
+local function JYAZTAP_fake_script() -- loopspeed6.Script 
 	local script = Instance.new('Script', loopspeed6)
 
 	function Click(mouse)
@@ -1107,8 +1057,8 @@ local function EKQT_fake_script() -- loopspeed6.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(EKQT_fake_script)()
-local function CYDZRAC_fake_script() -- loopspeed7.Script 
+coroutine.wrap(JYAZTAP_fake_script)()
+local function ULTP_fake_script() -- loopspeed7.Script 
 	local script = Instance.new('Script', loopspeed7)
 
 	function Click(mouse)
@@ -1124,8 +1074,8 @@ local function CYDZRAC_fake_script() -- loopspeed7.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(CYDZRAC_fake_script)()
-local function WMEG_fake_script() -- lpjp100.Script 
+coroutine.wrap(ULTP_fake_script)()
+local function BENIDX_fake_script() -- lpjp100.Script 
 	local script = Instance.new('Script', lpjp100)
 
 	function Click(mouse)
@@ -1140,8 +1090,8 @@ local function WMEG_fake_script() -- lpjp100.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(WMEG_fake_script)()
-local function JGDCIEE_fake_script() -- lpjp150.Script 
+coroutine.wrap(BENIDX_fake_script)()
+local function ARWYG_fake_script() -- lpjp150.Script 
 	local script = Instance.new('Script', lpjp150)
 
 	function Click(mouse)
@@ -1156,8 +1106,8 @@ local function JGDCIEE_fake_script() -- lpjp150.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(JGDCIEE_fake_script)()
-local function PTEZA_fake_script() -- lpjp250.Script 
+coroutine.wrap(ARWYG_fake_script)()
+local function EOYHY_fake_script() -- lpjp250.Script 
 	local script = Instance.new('Script', lpjp250)
 
 	function Click(mouse)
@@ -1172,8 +1122,8 @@ local function PTEZA_fake_script() -- lpjp250.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(PTEZA_fake_script)()
-local function NZSUWQR_fake_script() -- lpjp50.Script 
+coroutine.wrap(EOYHY_fake_script)()
+local function KQOIAK_fake_script() -- lpjp50.Script 
 	local script = Instance.new('Script', lpjp50)
 
 	function Click(mouse)
@@ -1188,8 +1138,8 @@ local function NZSUWQR_fake_script() -- lpjp50.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(NZSUWQR_fake_script)()
-local function GXZWNCK_fake_script() -- lpjp500.Script 
+coroutine.wrap(KQOIAK_fake_script)()
+local function XIYBMGI_fake_script() -- lpjp500.Script 
 	local script = Instance.new('Script', lpjp500)
 
 	function Click(mouse)
@@ -1204,8 +1154,8 @@ local function GXZWNCK_fake_script() -- lpjp500.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(GXZWNCK_fake_script)()
-local function ANYMAID_fake_script() -- lpjp750.Script 
+coroutine.wrap(XIYBMGI_fake_script)()
+local function USAYB_fake_script() -- lpjp750.Script 
 	local script = Instance.new('Script', lpjp750)
 
 	function Click(mouse)
@@ -1220,8 +1170,8 @@ local function ANYMAID_fake_script() -- lpjp750.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(ANYMAID_fake_script)()
-local function WVSMD_fake_script() -- lpjpv75.Script 
+coroutine.wrap(USAYB_fake_script)()
+local function RMKN_fake_script() -- lpjpv75.Script 
 	local script = Instance.new('Script', lpjpv75)
 
 	function Click(mouse)
@@ -1236,8 +1186,8 @@ local function WVSMD_fake_script() -- lpjpv75.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(WVSMD_fake_script)()
-local function UJCM_fake_script() -- maxzoom100kmax.Script 
+coroutine.wrap(RMKN_fake_script)()
+local function SXKIGC_fake_script() -- maxzoom100kmax.Script 
 	local script = Instance.new('Script', maxzoom100kmax)
 
 	function Click(mouse)
@@ -1249,138 +1199,8 @@ local function UJCM_fake_script() -- maxzoom100kmax.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(UJCM_fake_script)()
-local function URJMID_fake_script() -- positionfinder.Script 
-	local script = Instance.new('Script', positionfinder)
-
-	function Click(mouse)
-	
-		loadstring(game:HttpGet("https://pastefy.app/fE00IA44/raw"))()
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(URJMID_fake_script)()
-local function MMHH_fake_script() -- remotespy.Script 
-	local script = Instance.new('Script', remotespy)
-
-	function Click(mouse)
-	
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RS/main/SimpleSpyMobile"))()
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(MMHH_fake_script)()
-local function QSIGMGI_fake_script() -- speed175.Script 
-	local script = Instance.new('Script', speed175)
-
-	function Click(mouse)
-		
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25
-		
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(QSIGMGI_fake_script)()
-local function DVUJ_fake_script() -- speed1.Script 
-	local script = Instance.new('Script', speed1)
-
-	function Click(mouse)
-	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(DVUJ_fake_script)()
-local function QCTL_fake_script() -- speed2.Script 
-	local script = Instance.new('Script', speed2)
-
-	function Click(mouse)
-	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 35
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(QCTL_fake_script)()
-local function JLPHI_fake_script() -- speed4.Script 
-	local script = Instance.new('Script', speed4)
-
-	function Click(mouse)
-	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 150
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(JLPHI_fake_script)()
-local function HWXPNWP_fake_script() -- speed5.Script 
-	local script = Instance.new('Script', speed5)
-
-	function Click(mouse)
-	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 45
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(HWXPNWP_fake_script)()
-local function ESIDIMA_fake_script() -- speed5_2.Script 
-	local script = Instance.new('Script', speed5_2)
-
-	function Click(mouse)
-	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 45
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(ESIDIMA_fake_script)()
-local function CHZQUW_fake_script() -- speed6.Script 
-	local script = Instance.new('Script', speed6)
-
-	function Click(mouse)
-	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 250
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(CHZQUW_fake_script)()
-local function ZCLHEL_fake_script() -- speed7.Script 
-	local script = Instance.new('Script', speed7)
-
-	function Click(mouse)
-	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 70
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(ZCLHEL_fake_script)()
-local function SLRAUA_fake_script() -- speed.Script 
+coroutine.wrap(SXKIGC_fake_script)()
+local function TRCHCJY_fake_script() -- speed.Script 
 	local script = Instance.new('Script', speed)
 
 	function Click(mouse)
@@ -1393,8 +1213,8 @@ local function SLRAUA_fake_script() -- speed.Script
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(SLRAUA_fake_script)()
-local function QUYM_fake_script() -- speed.Script 
+coroutine.wrap(TRCHCJY_fake_script)()
+local function MZOQ_fake_script() -- speed.Script 
 	local script = Instance.new('Script', speed)
 
 	function Click(mouse)
@@ -1407,8 +1227,8 @@ local function QUYM_fake_script() -- speed.Script
 	script.Parent.MouseButton1Down:connect(Click)
 	
 end
-coroutine.wrap(QUYM_fake_script)()
-local function KCBONB_fake_script() -- stoploops.Script 
+coroutine.wrap(MZOQ_fake_script)()
+local function STFKMVY_fake_script() -- stoploops.Script 
 	local script = Instance.new('Script', stoploops)
 
 	function Click(mouse)
@@ -1420,21 +1240,99 @@ local function KCBONB_fake_script() -- stoploops.Script
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(KCBONB_fake_script)()
-local function OMTAP_fake_script() -- ws25.Script 
-	local script = Instance.new('Script', ws25)
+coroutine.wrap(STFKMVY_fake_script)()
+local function HQETHP_fake_script() -- speed175.Script 
+	local script = Instance.new('Script', speed175)
+
+	function Click(mouse)
+		
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25
+		
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(HQETHP_fake_script)()
+local function YABTNEM_fake_script() -- speed1.Script 
+	local script = Instance.new('Script', speed1)
 
 	function Click(mouse)
 	
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
 	
 	end
 	
 	
 	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(OMTAP_fake_script)()
-local function GBZRRRC_fake_script() -- Frame.LocalScript 
+coroutine.wrap(YABTNEM_fake_script)()
+local function EWUN_fake_script() -- speed2.Script 
+	local script = Instance.new('Script', speed2)
+
+	function Click(mouse)
+	
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 35
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(EWUN_fake_script)()
+local function VCBS_fake_script() -- speed4.Script 
+	local script = Instance.new('Script', speed4)
+
+	function Click(mouse)
+	
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 150
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(VCBS_fake_script)()
+local function DVLSWS_fake_script() -- speed5.Script 
+	local script = Instance.new('Script', speed5)
+
+	function Click(mouse)
+	
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 45
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(DVLSWS_fake_script)()
+local function FHRJ_fake_script() -- speed5_2.Script 
+	local script = Instance.new('Script', speed5_2)
+
+	function Click(mouse)
+	
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 45
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(FHRJ_fake_script)()
+local function BZBEEBC_fake_script() -- speed6.Script 
+	local script = Instance.new('Script', speed6)
+
+	function Click(mouse)
+	
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 250
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(BZBEEBC_fake_script)()
+local function AWFR_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 
 	local dragger = {}; 
@@ -1481,8 +1379,8 @@ local function GBZRRRC_fake_script() -- Frame.LocalScript
 	script.Parent.Active = true
 	script.Parent.Draggable = true
 end
-coroutine.wrap(GBZRRRC_fake_script)()
-local function ZTWFP_fake_script() -- toggle.LocalScript 
+coroutine.wrap(AWFR_fake_script)()
+local function ULDOUUT_fake_script() -- toggle.LocalScript 
 	local script = Instance.new('LocalScript', toggle)
 
 	local dragger = {}; 
@@ -1529,8 +1427,8 @@ local function ZTWFP_fake_script() -- toggle.LocalScript
 	script.Parent.Active = true
 	script.Parent.Draggable = true
 end
-coroutine.wrap(ZTWFP_fake_script)()
-local function KMCQD_fake_script() -- toggle.LocalScript 
+coroutine.wrap(ULDOUUT_fake_script)()
+local function VISO_fake_script() -- toggle.LocalScript 
 	local script = Instance.new('LocalScript', toggle)
 
 	local back = script.Parent.Parent.Frame
@@ -1560,4 +1458,4 @@ local function KMCQD_fake_script() -- toggle.LocalScript
 	
 	end)
 end
-coroutine.wrap(KMCQD_fake_script)()
+coroutine.wrap(VISO_fake_script)()
