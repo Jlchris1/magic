@@ -1,0 +1,94 @@
+local player = game.Players.LocalPlayer
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local eventsFolder = replicatedStorage:WaitForChild("Events"):WaitForChild("SetMap")
+
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.ResetOnSpawn = false
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Create TextBox
+local textBox = Instance.new("TextBox")
+textBox.Size = UDim2.new(0, 50, 0, 20)
+textBox.Position = UDim2.new(0, 10, 0, 10)
+textBox.Text = "0"
+textBox.Parent = screenGui
+
+-- Create Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 55, 0, 20)
+button.Position = UDim2.new(0, 70, 0, 10) -- Positioned next to the textbox
+button.Text = "Choose Map"
+button.Parent = screenGui
+
+-- Create Scrolling Frame (Hidden by default)
+local scrollFrame = Instance.new("ScrollingFrame")
+scrollFrame.Size = UDim2.new(0, 150, 0, 100) -- Initial size
+scrollFrame.Position = UDim2.new(0, 10, 0, 40)
+scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+scrollFrame.ScrollBarThickness = 5
+scrollFrame.Visible = false
+scrollFrame.Parent = screenGui
+
+-- UI List Layout (Auto aligns buttons)
+local layout = Instance.new("UIListLayout")
+layout.Parent = scrollFrame
+layout.SortOrder = Enum.SortOrder.LayoutOrder
+layout.Padding = UDim.new(0, 5) -- Space between buttons
+
+-- Function to populate ScrollingFrame
+local function populateScrollFrame()
+    -- Clear old buttons
+    for _, child in pairs(scrollFrame:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+
+    -- Add buttons for each remote event
+    for _, remote in pairs(eventsFolder:GetChildren()) do
+        if remote:IsA("RemoteEvent") then
+            local mapButton = Instance.new("TextButton")
+            mapButton.Size = UDim2.new(1, 0, 0, 20)
+            mapButton.Text = remote.Name
+            mapButton.Parent = scrollFrame
+
+            -- Click event to fire the remote
+            mapButton.MouseButton1Click:Connect(function()
+                remote:FireServer()
+            end)
+        end
+    end
+
+    -- Adjust scrolling frame height dynamically
+    local totalHeight = #scrollFrame:GetChildren() * 25
+    scrollFrame.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
+end
+
+-- Show/Hide ScrollingFrame on Button Click
+button.MouseButton1Click:Connect(function()
+    if scrollFrame.Visible then
+        scrollFrame.Visible = false
+    else
+        populateScrollFrame()
+        scrollFrame.Visible = true
+    end
+end)
+
+-- Function to handle input for disasters
+textBox.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        local number = tonumber(textBox.Text)
+        if number then
+            if number > 0 then
+                for i = 1, number do
+                    replicatedStorage.Events.AddDisaster:FireServer()
+                end
+            elseif number < 0 then
+                for i = 1, math.abs(number) do
+                    replicatedStorage.Events.RemoveDisaster:FireServer()
+                end
+            end
+        end
+    end
+end)
