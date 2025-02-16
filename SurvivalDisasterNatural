@@ -14,17 +14,26 @@ textBox.Position = UDim2.new(0, 10, 0, 10)
 textBox.Text = "0"
 textBox.Parent = screenGui
 
--- Create Button
+-- Create "Choose Map" Button
 local button = Instance.new("TextButton")
 button.Size = UDim2.new(0, 55, 0, 20)
-button.Position = UDim2.new(0, 70, 0, 10) -- Positioned next to the textbox
+button.Position = UDim2.new(0, 70, 0, 10)
 button.Text = "Choose Map"
 button.Parent = screenGui
 
+-- Create Search Bar (Now separate from scrollFrame)
+local searchBar = Instance.new("TextBox")
+searchBar.Size = UDim2.new(0, 150, 0, 20)
+searchBar.Position = UDim2.new(0, 10, 0, 40) -- Positioned above the scrolling frame
+searchBar.PlaceholderText = "Search..."
+searchBar.ClearTextOnFocus = false
+searchBar.Visible = false
+searchBar.Parent = screenGui
+
 -- Create Scrolling Frame (Hidden by default)
 local scrollFrame = Instance.new("ScrollingFrame")
-scrollFrame.Size = UDim2.new(0, 150, 0, 100) -- Initial size
-scrollFrame.Position = UDim2.new(0, 10, 0, 40)
+scrollFrame.Size = UDim2.new(0, 150, 0, 100)
+scrollFrame.Position = UDim2.new(0, 10, 0, 65) -- Moved down to fit search bar
 scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 scrollFrame.ScrollBarThickness = 5
 scrollFrame.Visible = false
@@ -34,10 +43,10 @@ scrollFrame.Parent = screenGui
 local layout = Instance.new("UIListLayout")
 layout.Parent = scrollFrame
 layout.SortOrder = Enum.SortOrder.LayoutOrder
-layout.Padding = UDim.new(0, 5) -- Space between buttons
+layout.Padding = UDim.new(0, 5)
 
 -- Function to populate ScrollingFrame
-local function populateScrollFrame()
+local function populateScrollFrame(filter)
     -- Clear old buttons
     for _, child in pairs(scrollFrame:GetChildren()) do
         if child:IsA("TextButton") then
@@ -47,7 +56,7 @@ local function populateScrollFrame()
 
     -- Add buttons for each remote event
     for _, remote in pairs(eventsFolder:GetChildren()) do
-        if remote:IsA("RemoteEvent") then
+        if remote:IsA("RemoteEvent") and (not filter or remote.Name:lower():find(filter:lower())) then
             local mapButton = Instance.new("TextButton")
             mapButton.Size = UDim2.new(1, 0, 0, 20)
             mapButton.Text = remote.Name
@@ -65,14 +74,21 @@ local function populateScrollFrame()
     scrollFrame.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
 end
 
--- Show/Hide ScrollingFrame on Button Click
+-- Show/Hide ScrollingFrame and Search Bar on Button Click
 button.MouseButton1Click:Connect(function()
     if scrollFrame.Visible then
         scrollFrame.Visible = false
+        searchBar.Visible = false
     else
-        populateScrollFrame()
+        populateScrollFrame("")
         scrollFrame.Visible = true
+        searchBar.Visible = true
     end
+end)
+
+-- Update list when search bar text changes
+searchBar:GetPropertyChangedSignal("Text"):Connect(function()
+    populateScrollFrame(searchBar.Text)
 end)
 
 -- Function to handle input for disasters
