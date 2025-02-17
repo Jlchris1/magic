@@ -2,6 +2,9 @@ local player = game.Players.LocalPlayer
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local eventsFolder = replicatedStorage:WaitForChild("Events"):WaitForChild("SetMap")
 
+local loopActive = false
+local loopRemote = nil
+
 -- Create ScreenGui
 local screenGui = Instance.new("ScreenGui")
 screenGui.ResetOnSpawn = false
@@ -21,69 +24,119 @@ button.Position = UDim2.new(0, 70, 0, 10)
 button.Text = "Choose Map"
 button.Parent = screenGui
 
--- Create Search Bar (Now separate from scrollFrame)
+-- Create Search Bar (Outside of Scroll Frame)
 local searchBar = Instance.new("TextBox")
 searchBar.Size = UDim2.new(0, 150, 0, 20)
-searchBar.Position = UDim2.new(0, 10, 0, 40) -- Positioned above the scrolling frame
+searchBar.Position = UDim2.new(0, 10, 0, 40)
 searchBar.PlaceholderText = "Search..."
 searchBar.ClearTextOnFocus = false
 searchBar.Visible = false
 searchBar.Parent = screenGui
 
--- Create Scrolling Frame (Hidden by default)
+-- Create Scrolling Frame
 local scrollFrame = Instance.new("ScrollingFrame")
 scrollFrame.Size = UDim2.new(0, 150, 0, 100)
-scrollFrame.Position = UDim2.new(0, 10, 0, 65) -- Moved down to fit search bar
+scrollFrame.Position = UDim2.new(0, 10, 0, 65)
 scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 scrollFrame.ScrollBarThickness = 5
 scrollFrame.Visible = false
 scrollFrame.Parent = screenGui
 
--- UI List Layout (Auto aligns buttons)
+-- UI List Layout
 local layout = Instance.new("UIListLayout")
 layout.Parent = scrollFrame
 layout.SortOrder = Enum.SortOrder.LayoutOrder
 layout.Padding = UDim.new(0, 5)
 
--- Function to populate ScrollingFrame
+-- Function to start looping a remote
+local function startLooping(remote, lcButton)
+    loopActive = true
+    loopRemote = remote
+    lcButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green (enabled)
+
+    while loopActive and loopRemote == remote do
+        remote:FireServer()
+        wait(0.5)
+    end
+end
+
+-- Function to populate the ScrollingFrame
 local function populateScrollFrame(filter)
-    -- Clear old buttons
     for _, child in pairs(scrollFrame:GetChildren()) do
-        if child:IsA("TextButton") then
-            child:Destroy()
+        if child:IsA("Frame") then
+            local mapLabel = child:FindFirstChild("MapLabel")
+            if mapLabel and (not filter or mapLabel.Text:lower():find(filter:lower())) then
+                child.Visible = true
+            else
+                child.Visible = false
+            end
         end
     end
+end
 
-    -- Add buttons for each remote event
+-- Function to create map entries (Only runs once)
+local function setupMapEntries()
     for _, remote in pairs(eventsFolder:GetChildren()) do
-        if remote:IsA("RemoteEvent") and (not filter or remote.Name:lower():find(filter:lower())) then
-            local mapButton = Instance.new("TextButton")
-            mapButton.Size = UDim2.new(1, 0, 0, 20)
-            mapButton.Text = remote.Name
-            mapButton.Parent = scrollFrame
+        if remote:IsA("RemoteEvent") then
+            local entryFrame = Instance.new("Frame")
+            entryFrame.Size = UDim2.new(1, 0, 0, 25)
+            entryFrame.Parent = scrollFrame
 
-            -- Click event to fire the remote
-            mapButton.MouseButton1Click:Connect(function()
+            local mapLabel = Instance.new("TextLabel")
+            mapLabel.Size = UDim2.new(0.5, 0, 1, 0)
+            mapLabel.Position = UDim2.new(0, 0, 0, 0)
+            mapLabel.Text = remote.Name
+            mapLabel.Name = "MapLabel"
+            mapLabel.Parent = entryFrame
+            mapLabel.TextScaled = true
+
+            -- LC Button (Toggle)
+            local lcButton = Instance.new("TextButton")
+            lcButton.Size = UDim2.new(0.25, 0, 1, 0)
+            lcButton.Position = UDim2.new(0.5, 0, 0, 0)
+            lcButton.Text = "LC"
+            lcButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red (disabled)
+            lcButton.Parent = entryFrame
+
+            -- Choose Button (Fire once)
+            local chooseButton = Instance.new("TextButton")
+            chooseButton.Size = UDim2.new(0.25, 0, 1, 0)
+            chooseButton.Position = UDim2.new(0.75, 0, 0, 0)
+            chooseButton.Text = "Choose"
+            chooseButton.Parent = entryFrame
+
+            -- Click event for "Choose" button
+            chooseButton.MouseButton1Click:Connect(function()
                 remote:FireServer()
+            end)
+
+            -- Click event for "LC" button (Toggle)
+            lcButton.MouseButton1Click:Connect(function()
+                if loopActive and loopRemote == remote then
+                    -- Stop looping
+                    loopActive = false
+                    lcButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red (disabled)
+                else
+                    -- Stop any existing loop and start a new one
+                    loopActive = false
+                    wait(0.1) -- Small delay to prevent overlapping loops
+                    lcButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green (enabled)
+                    startLooping(remote, lcButton)
+                end
             end)
         end
     end
 
     -- Adjust scrolling frame height dynamically
-    local totalHeight = #scrollFrame:GetChildren() * 25
+    local totalHeight = #scrollFrame:GetChildren() * 30
     scrollFrame.CanvasSize = UDim2.new(0, 0, 0, totalHeight)
 end
 
 -- Show/Hide ScrollingFrame and Search Bar on Button Click
 button.MouseButton1Click:Connect(function()
-    if scrollFrame.Visible then
-        scrollFrame.Visible = false
-        searchBar.Visible = false
-    else
-        populateScrollFrame("")
-        scrollFrame.Visible = true
-        searchBar.Visible = true
-    end
+    local isVisible = not scrollFrame.Visible
+    scrollFrame.Visible = isVisible
+    searchBar.Visible = isVisible
 end)
 
 -- Update list when search bar text changes
@@ -108,3 +161,6 @@ textBox.FocusLost:Connect(function(enterPressed)
         end
     end
 end)
+
+-- Run once to create the UI elements
+setupMapEntries()
