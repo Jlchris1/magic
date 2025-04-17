@@ -17,6 +17,21 @@ textBox.Position = UDim2.new(0, 10, 0, 10)
 textBox.Text = "0"
 textBox.Parent = screenGui
 
+-- Create "Anti Barriers" Button (Next to Choose Map)
+local destroyButton = Instance.new("TextButton")
+destroyButton.Size = UDim2.new(0, 55, 0, 20)
+destroyButton.Position = UDim2.new(0, 135, 0, 10) -- Right of "Choose Map" button
+destroyButton.Text = "Anti Barriers"
+destroyButton.Parent = screenGui
+
+destroyButton.MouseButton1Click:Connect(function()
+    for _, obj in ipairs(workspace:GetDescendants()) do
+        if obj:IsA("BasePart") and obj.Name == "Damage Block" then
+            obj:Destroy()
+        end
+    end
+end)
+
 -- Create "Choose Map" Button
 local button = Instance.new("TextButton")
 button.Size = UDim2.new(0, 55, 0, 20)
